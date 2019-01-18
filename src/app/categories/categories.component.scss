@@ -8,6 +8,13 @@ img {
 
 #search {
     width: 50%;
-    float: right;
-    clear: both;
+    // float: right;
+    // clear: both;
+}
+
+@media (max-width: 767px) {
+    #search {
+        width: 80%;
+        margin-top: 3%;
+    }
 }

@@ -16,12 +16,7 @@ img {
 
 .xxc {
     background-color: #23282e;
-    .login {
-        width: 2%;
-        margin-right: 2%;
-        padding-top: 2%;
-        float: right;
-    }
+    height: 60px;
 }
 
 .login {
@@ -154,7 +149,7 @@ img {
     transition: all 1s ease;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 820px) {
     .nav-side-menu {
         position: relative;
         width: 100%;
@@ -187,12 +182,12 @@ img {
     }
 }
 
-// @media (max-width: 767px) {
-//     .xxc {
-//         background-color: green !important;
-//         display: none;
-//     }
-// }
+@media (max-width: 820px) {
+    .xxc {
+        display: none;
+    }
+}
+
 body {
     margin: 0px;
     padding: 0px;

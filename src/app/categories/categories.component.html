@@ -2,7 +2,7 @@
 <br>
 
 <div class="container  ">
-    <div class="col-md-12 offset-md-4 col-sm-12 offset-sm-4 col-xs-12">
+    <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
         <div class="row">
             <div *ngIf="hideAdd">
                 <button type="button " class="btn btn-success" (click)="addNewCategory()">Add New Category</button>
@@ -43,7 +43,7 @@
     </div>
     <br><br>
     <div class="row ">
-        <div class="panel col-md-8 offset-md-4 col-sm-12 offset-sm-2 col-xs-12 ">
+        <div class="panel col-md-8 offset-md-4 col-sm-12 offset-sm-1 col-xs-12 ">
             <div class="panel-heading ">
                 <h3 class="panel-title ">Categories</h3>
             </div>
@@ -51,17 +51,17 @@
                 <table class="table table-bordered ">
                     <thead>
                         <tr>
-                            <th scope="col ">#</th>
+                            <!-- <th scope="col ">#</th> -->
                             <th scope="col ">Category</th>
-                            <!-- <th scope="col ">Parent Category</th> -->
+                            <th scope="col ">Parent Category</th>
                             <th scope="col ">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of category ">
-                            <td>{{item.id}}</td>
+                            <!-- <td>{{item.id}}</td> -->
                             <td>{{item.name}}</td>
-                            <!-- <td>{{item.parentCategoryId}}</td> -->
+                            <td>{{item.parentCategoryId}}</td>
                             <td>
                                 <button type="button " class=" btn btn-info btn - sm  disabled"><i class="fa fa-pencil"></i></button>
                                 <button type="button " class=" btn btn-danger btn - sm " (click)="deleteCategory(item.id)"><i class="fa fa-trash"></i> </button>
