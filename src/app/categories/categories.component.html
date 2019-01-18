@@ -1,0 +1,97 @@
+<br>
+<br>
+
+<div class="container  ">
+    <div class="col-md-12 offset-md-4 col-sm-12 offset-sm-4 col-xs-12">
+        <div class="row">
+            <div *ngIf="hideAdd">
+                <button type="button " class="btn btn-success" (click)="addNewCategory()">Add New Category</button>
+            </div>
+            <form *ngIf="showForm">
+                <div class="form-group ">
+                    <!-- <label for="category ">Category:</label> -->
+                    <input type="text " [(ngModel)]="name " placeholder="Category " name="name " class="form-control " id="category ">
+
+                </div>
+                <!-- <div class="form-group ">
+                    <label for="parentCategory ">Parent Category:</label>
+                    <input type="text " [(ngModel)]="parent " placeholder="Category " name="parent " class="form-control " id="parentCategory ">
+                </div> -->
+            </form>
+            <div *ngIf="showSubmit">
+                <button type="submit" class="btn btn-success " (click)="submit(category) ">Submit</button>
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="row justify-content-center" id="search">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <form class="">
+                        <div class=" row no-gutters align-items-center">
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless" [(ngModel)]="categorySearch" name="search" type="search" placeholder="Search">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-lg btn-success" type="submit" (click)="searchCategory()"><i class="fa fa-search"></i> </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br><br>
+    <div class="row ">
+        <div class="panel col-md-8 offset-md-4 col-sm-12 offset-sm-2 col-xs-12 ">
+            <div class="panel-heading ">
+                <h3 class="panel-title ">Categories</h3>
+            </div>
+            <div class="panel-body ">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th scope="col ">#</th>
+                            <th scope="col ">Category</th>
+                            <!-- <th scope="col ">Parent Category</th> -->
+                            <th scope="col ">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of category ">
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <!-- <td>{{item.parentCategoryId}}</td> -->
+                            <td>
+                                <button type="button " class=" btn btn-info btn - sm  disabled"><i class="fa fa-pencil"></i></button>
+                                <button type="button " class=" btn btn-danger btn - sm " (click)="deleteCategory(item.id)"><i class="fa fa-trash"></i> </button>
+                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Launch demo modal
+                                      </button> -->
+                            </td>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">DELETE</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Do you want to delete this category
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                                            <button type="button" class="btn btn-danger" (click)="deleteCategory(item.id)">YES</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
