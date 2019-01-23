@@ -10,12 +10,17 @@ import { MenuComponent } from './menu/menu.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { CategoriesService } from './services/categories.service';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     CategoriesComponent,
     ProductsComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    CategoriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

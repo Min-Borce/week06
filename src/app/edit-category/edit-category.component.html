@@ -1,0 +1,21 @@
+<br>
+<br>
+<div class="container  ">
+    <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
+        <div class="row">
+            <form>
+                <div class="form-group ">
+                    <label for="category ">Category:</label>
+                    <input type="text " [(ngModel)]="name" placeholder="Category" name="name" class="form-control " id="category ">
+                </div>
+                <!-- <div class="form-group ">
+              <label for="parentCategory ">Parent Category:</label>
+              <input type="text " [(ngModel)]="parent " placeholder="Category " name="parent " class="form-control " id="parentCategory ">
+          </div> -->
+            </form>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success " (click)="updateCategory() ">Update</button>
+        </div>
+    </div>
+</div>

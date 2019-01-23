@@ -4,23 +4,23 @@
 <div class="container  ">
     <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
         <div class="row">
-            <div *ngIf="hideAdd">
-                <button type="button " class="btn btn-success" (click)="addNewCategory()">Add New Category</button>
+            <div>
+                <button routerLink="/add-category" type="button " class="btn btn-success">Add New Category</button>
             </div>
-            <form *ngIf="showForm">
-                <div class="form-group ">
-                    <!-- <label for="category ">Category:</label> -->
-                    <input type="text " [(ngModel)]="name " placeholder="Category " name="name " class="form-control " id="category ">
+            <!-- <form *ngIf="showForm">
+                <div class="form-group "> -->
+            <!-- <label for="category ">Category:</label> -->
+            <!-- <input type="text " [(ngModel)]="name " placeholder="Category " name="name " class="form-control " id="category ">
 
-                </div>
-                <!-- <div class="form-group ">
+                </div> -->
+            <!-- <div class="form-group ">
                     <label for="parentCategory ">Parent Category:</label>
                     <input type="text " [(ngModel)]="parent " placeholder="Category " name="parent " class="form-control " id="parentCategory ">
                 </div> -->
-            </form>
-            <div *ngIf="showSubmit">
+            <!-- </form> -->
+            <!-- <div *ngIf="showSubmit">
                 <button type="submit" class="btn btn-success " (click)="submit(category) ">Submit</button>
-            </div>
+            </div> -->
 
 
             <!-- SEARCH -->
@@ -39,14 +39,13 @@
                 </div>
             </div>
         </div>
-
     </div>
     <br><br>
     <div class="row ">
         <div class="panel col-md-8 offset-md-4 col-sm-12 offset-sm-1 col-xs-12 ">
-            <div class="panel-heading ">
+            <!-- <div class="panel-heading ">
                 <h3 class="panel-title ">Categories</h3>
-            </div>
+            </div> -->
             <div class="panel-body ">
                 <table class="table table-bordered ">
                     <thead>
@@ -63,7 +62,7 @@
                             <td>{{item.name}}</td>
                             <td>{{item.parentCategoryId}}</td>
                             <td>
-                                <button type="button " class=" btn btn-info btn - sm  disabled"><i class="fa fa-pencil"></i></button>
+                                <button routerLink="/edit-category" type="button " (click)="editCategory(item.id)" class=" btn btn-info btn - sm "><i class="fa fa-pencil"></i></button>
                                 <button type="button " class=" btn btn-danger btn - sm " (click)="deleteCategory(item.id)"><i class="fa fa-trash"></i> </button>
                                 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                         Launch demo modal
