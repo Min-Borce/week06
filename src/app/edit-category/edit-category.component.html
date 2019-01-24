@@ -8,14 +8,23 @@
                     <label for="category ">Category:</label>
                     <input type="text " [(ngModel)]="name" placeholder="Category" name="name" class="form-control " id="category ">
                 </div>
-                <!-- <div class="form-group ">
-              <label for="parentCategory ">Parent Category:</label>
-              <input type="text " [(ngModel)]="parent " placeholder="Category " name="parent " class="form-control " id="parentCategory ">
-          </div> -->
+                <div class="form-group ">
+                    <label for="parentCategory">Parent Category:</label>
+                    <select [(ngModel)]="parent" name="parent" class="custom-select custom-select-lg mb-3">
+                        <option *ngFor="let item of category" [value]="item.id"  id="parent" >{{item.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" rows="5" name="description" [(ngModel)]="description" id="description"></textarea>
+                </div>
+
             </form>
         </div>
         <div>
+            <button type="submit" class="btn btn-success " (click)="backToCategories() ">Back</button>
             <button type="submit" class="btn btn-success " (click)="updateCategory() ">Update</button>
         </div>
+
     </div>
 </div>

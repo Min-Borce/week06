@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import { CategoriesService } from '../services/categories.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-categories',
@@ -9,17 +10,26 @@ import { CategoriesService } from '../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
   name: string;
+  parentCategoryName: string;
+  description: string;
   id: number;
   parent: number;
   cat = {
-    'name': ''
-    // 'parentCategoryId': 1
+    'name': '',
+    'parentCategoryName': '',
+    'description': ''
   };
   categoryArray: Object;
   categoryDelete: Object;
   categorySearch: string;
-  constructor(private service: CategoriesService ) {
+  constructor(
+    private service: CategoriesService,
+    private toastr: ToastrService
+     ) {
+      this.getCategory();
+
   }
+
   // category: object[];
   category: any;
   getCategory() {
@@ -37,8 +47,11 @@ this.service.editId = id;
   deleteCategory(id) {
     this.service.deleteCategories(id).subscribe(data => {
     this.categoryDelete = data;
+    this.toastr.success('You have successfully deleted category');
       this.getCategory();
     });
+    // this.toastr.success('Hello world!', 'Toastr fun!');
+
    }
 
    searchCategory() {
@@ -50,6 +63,6 @@ this.service.editId = id;
    }); } }
 
   ngOnInit() {
-    this.getCategory();
+    // this.getCategory();
   }
 }

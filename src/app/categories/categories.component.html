@@ -60,7 +60,7 @@
                         <tr *ngFor="let item of category ">
                             <!-- <td>{{item.id}}</td> -->
                             <td>{{item.name}}</td>
-                            <td>{{item.parentCategoryId}}</td>
+                            <td>{{item.parentCategoryName}}</td>
                             <td>
                                 <button routerLink="/edit-category" type="button " (click)="editCategory(item.id)" class=" btn btn-info btn - sm "><i class="fa fa-pencil"></i></button>
                                 <button type="button " class=" btn btn-danger btn - sm " (click)="deleteCategory(item.id)"><i class="fa fa-trash"></i> </button>

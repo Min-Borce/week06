@@ -13,7 +13,7 @@ export class CategoriesService {
 public urlGetPost = 'http://127.0.0.1:3000/categories';
 public urlDelete =  'http://127.0.0.1:3000/categories/';
 public urlSearch = 'http://localhost:3000/categories?filter[where][name]=';
-editData: CategoriesInterface[];
+list: CategoriesInterface[];
 editId: number;
 id: number;
 
