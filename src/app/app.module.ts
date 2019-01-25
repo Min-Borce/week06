@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { ModalModule } from 'ngx-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
       timeOut: 5000,
       preventDuplicates: true,
 
-    })
+    }),
+    ModalModule.forRoot()
   ],
   providers: [
     CategoriesService

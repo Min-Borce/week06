@@ -11,7 +11,7 @@
                 <div class="form-group ">
                     <label for="parentCategory">Parent Category:</label>
                     <select [(ngModel)]="parent" name="parent" class="custom-select custom-select-lg mb-3">
-                        <option *ngFor="let item of category" [value]="item.id"  id="parent" >{{item.name}}</option>
+                        <option *ngFor="let item of category" [ngValue]="item.name"  id="parent" >{{item.name}}</option>
                   </select>
                 </div>
                 <div class="form-group">

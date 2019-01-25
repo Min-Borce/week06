@@ -10,15 +10,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditCategoryComponent implements OnInit {
 
-category: any = {
-name: '',
-parentCategoryName: '',
-description: ''
+cat: any = {
+'name': '',
+'parentCategoryName': '',
+'description': ''
 };
+// editId: number;
 name: string;
-// parentCategoryName: string;
+parentCategoryName: string;
 description: string;
 parent: string;
+category: any;
   constructor(
     private service: CategoriesService,
     public router: Router,
@@ -27,20 +29,22 @@ parent: string;
 
 
   editCategory() {
-    // debugger;
     this.service.editCategories().subscribe(data => {
-      this.category = data;
+      this.cat = data;
 // this.service.editData = data;
-console.log('XXX ' + this.category.description);
-this.name = this.category.name;
-this.parent = this.category.parentCategoryName;
-this.description = this.category.description;
+// console.log('XXX ' + this.category.parentCategoryName);
+
+this.name = this.cat.name;
+this.parent = this.cat.parentCategoryName;
+this.description = this.cat.description;
     });
   }
 
   updateCategory() {
-    this.category.name = this.name;
-    this.service.updateCategories(this.category.id, this.category).subscribe(data => {
+    this.cat.name = this.name;
+    this.cat.parentCategoryName = this.parent;
+    this.cat.description = this.description;
+    this.service.updateCategories(this.cat.id, this.cat).subscribe(data => {
       this.router.navigate(['/categories']);
       this.toastr.success('You have edited category successfully');
 
@@ -55,5 +59,8 @@ this.description = this.category.description;
 
   ngOnInit() {
     this.editCategory();
+    this.service.getCategories().subscribe(data => {
+      this.category = data;
+    });
   }
 }

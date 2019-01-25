@@ -37,10 +37,10 @@ export class AddCategoryComponent implements OnInit {
     this.cat.name = this.name;
     this.cat.parentCategoryName = this.parent;
     this.cat.description = this.description;
-// if (name === "") {
-//   this.toastr.warning('please enter name');
+if (!this.name) {
+  this.toastr.warning('please enter name');
 
-// } else {
+} else {
 
     this.service.addCategories(this.cat).subscribe(data => {
     // this.categoryArray = data;
@@ -48,7 +48,7 @@ export class AddCategoryComponent implements OnInit {
       this.toastr.success('You have successfully added new category');
       this.router.navigate(['/categories']);
   });
-// }
+}
   }
 
   ngOnInit() {

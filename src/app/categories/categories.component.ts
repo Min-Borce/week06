@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 // import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import { CategoriesService } from '../services/categories.service';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-categories',
@@ -22,10 +23,13 @@ export class CategoriesComponent implements OnInit {
   categoryArray: Object;
   categoryDelete: Object;
   categorySearch: string;
+  modalRef: BsModalRef;
+
   constructor(
     private service: CategoriesService,
-    private toastr: ToastrService
-     ) {
+    private toastr: ToastrService,
+    private modalService: BsModalService
+         ) {
       this.getCategory();
 
   }
@@ -45,10 +49,14 @@ editCategory(id) {
 this.service.editId = id;
 }
   deleteCategory(id) {
+
+
     this.service.deleteCategories(id).subscribe(data => {
     this.categoryDelete = data;
     this.toastr.success('You have successfully deleted category');
       this.getCategory();
+      this.modalRef.hide();
+
     });
     // this.toastr.success('Hello world!', 'Toastr fun!');
 
@@ -61,6 +69,20 @@ this.service.editId = id;
      this.service.searchCategories(this.categorySearch).subscribe(data => {
       return this.category = data;
    }); } }
+
+
+
+   openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  }
+
+  confirm(): void {
+    this.modalRef.hide();
+  }
+
+  decline(): void {
+    this.modalRef.hide();
+  }
 
   ngOnInit() {
     // this.getCategory();
