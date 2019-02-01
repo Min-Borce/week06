@@ -4,8 +4,9 @@ import { ProductsService } from '../services/products.service';
 import { CategoriesService } from '../services/categories.service';
 // import {CategoriesInterface} from '../model/categories';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { finalize } from 'rxjs/operators';
+// import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,6 +17,9 @@ import { Observable } from 'rxjs';
 
 
 export class AddProductComponent implements OnInit {
+  name: string;
+  categoryId: number;
+  manifactuer: string;
   ref;
   task;
   uploadProgress;
@@ -28,7 +32,8 @@ category: object = [];
   constructor(
     private service: ProductsService,
     private serviceCat: CategoriesService,
-    private afStorage: AngularFireStorage
+    private afStorage: AngularFireStorage,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -45,9 +50,18 @@ this.getCategories();
 
   this.ref.getDownloadURL().subscribe( data => {
   this.downloadURL = data;
-    console.log(data);
+  console.log('1 ' + data);
+  this.imgUrl = this.downloadURL;
+
+    console.log('PRODUCT222' + this.products);
+    console.log('URL ' + this.imgUrl);
+    console.log('downloadURL ' + this.downloadURL);
+
+    console.log('PRODUCT' + this.products);
+
   }
        );
+
 
 
   // task
@@ -55,16 +69,30 @@ this.getCategories();
   // .pipe(finalize(() => this.imgUrl = this.ref.getDownloadURL()))
   // .subscribe(data => console.log(data));
 
-
-
-
   }
 
 
 
   submit() {
+    // this.imgUrl = this.downloadURL;
 this.service.addProducts(this.products).subscribe(data => {
+  // if (this.name) {
+  //   this.toastr.success('Please fill required fields');
+
+  // } else {
+    // this.service.addProducts(this.products).subscribe(data => {
+      console.log(this.downloadURL);
+  this.toastr.success('You have successfully added new product');
+
+
+
+
 });
+// }
+
+
+
+// });
 
   }
 
