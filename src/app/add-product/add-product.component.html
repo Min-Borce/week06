@@ -20,7 +20,7 @@
                   <input  type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
                 </label>
                     <!-- <button type="submit" class="btn btn-success">Upload a File</button> -->
-                    <button type="submit" class="btn btn-danger ">Remove Picture</button>
+                    <button type="submit" class="btn btn-danger " (click)="removeImg()">Remove Picture</button>
                 </div>
                 <!-- Name -->
                 <div class="form-group ">

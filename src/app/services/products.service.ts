@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 export class ProductsService {
 
 public urlPost  = 'http://127.0.0.1:3000/products';
+public urlDelete =  'http://127.0.0.1:3000/products/';
 // list: ProductsInterface[];
 editId: number;
   constructor(private http: HttpClient) { }
@@ -22,5 +23,8 @@ editId: number;
 }
   updateProducts(id, products) {
   return this.http.put<any>(this.urlPost + '/' + id, products);
+}
+deleteProducts(id) {
+  return this.http.delete(this.urlDelete + id);
 }
 }

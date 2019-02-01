@@ -4,7 +4,7 @@ import { ProductsService } from '../services/products.service';
 import { CategoriesService } from '../services/categories.service';
 // import {CategoriesInterface} from '../model/categories';
 import { AngularFireStorage } from 'angularfire2/storage';
-// import { finalize } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
@@ -20,6 +20,7 @@ export class AddProductComponent implements OnInit {
   // name: string;
   // categoryId: number;
   // manifactuer: string;
+  id: number;
   ref;
   task;
   uploadProgress;
@@ -39,7 +40,12 @@ category: object = [];
   ngOnInit() {
 this.getCategories();
   }
-
+  removeImg(id) {
+      this.service.deleteProducts(id).subscribe(data => {
+      this.imageUrl = data;
+      });
+      // this.toastr.success('Hello world!', 'Toastr fun!');
+  }
   upload(event) {
     // debugger;
     const randomId = Math.random().toString(36).substring(2);
@@ -48,10 +54,23 @@ this.getCategories();
     this.uploadProgress = task.percentageChanges();
 
 
-  this.ref.getDownloadURL().subscribe( data => {
-  this.products.imageUrl = data;
-  }
-       );
+  // this.ref.getDownloadURL().subscribe( data => {
+  // this.products.imageUrl = data;
+  // }
+  // );
+
+
+  task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
+    this.products.imageUrl = data;
+        });
+    })
+  ).subscribe(data => console.log(data));
+
+
+
+
+
+
 
 
   }
