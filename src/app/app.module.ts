@@ -16,6 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CategoriesService } from './services/categories.service';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +28,8 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     ProductsComponent,
     AddCategoryComponent,
     EditCategoryComponent,
+    AddProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,16 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
       preventDuplicates: true,
 
     }),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyBzBg0OYGhuMTTGJdH5oXmvx_NEuCnYU4k',
+      authDomain: 'upload-image-8c7bd.firebaseapp.com',
+      databaseURL: 'https://upload-image-8c7bd.firebaseio.com',
+      projectId: 'upload-image-8c7bd',
+      storageBucket: 'upload-image-8c7bd.appspot.com',
+      messagingSenderId: '1044384387678'
+    }),
+    AngularFireStorageModule
   ],
   providers: [
     CategoriesService

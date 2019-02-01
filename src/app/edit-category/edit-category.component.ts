@@ -30,13 +30,10 @@ category: any;
 
   editCategory() {
     this.service.editCategories().subscribe(data => {
-      this.cat = data;
-// this.service.editData = data;
-// console.log('XXX ' + this.category.parentCategoryName);
-
-this.name = this.cat.name;
-this.parent = this.cat.parentCategoryName;
-this.description = this.cat.description;
+    this.cat = data;
+    this.name = this.cat.name;
+    this.parent = this.cat.parentCategoryName;
+    this.description = this.cat.description;
     });
   }
 
