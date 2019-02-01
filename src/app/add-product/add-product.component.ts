@@ -17,13 +17,13 @@ import { ToastrService } from 'ngx-toastr';
 
 
 export class AddProductComponent implements OnInit {
-  name: string;
-  categoryId: number;
-  manifactuer: string;
+  // name: string;
+  // categoryId: number;
+  // manifactuer: string;
   ref;
   task;
   uploadProgress;
-  downloadURL;
+  // downloadURL;
   imageUrl;
   imgUrl: Observable<string>;
 products: ProductsInterface = {} as ProductsInterface;
@@ -49,25 +49,10 @@ this.getCategories();
 
 
   this.ref.getDownloadURL().subscribe( data => {
-  this.downloadURL = data;
-  console.log('1 ' + data);
-  this.imgUrl = this.downloadURL;
-
-    console.log('PRODUCT222' + this.products);
-    console.log('URL ' + this.imgUrl);
-    console.log('downloadURL ' + this.downloadURL);
-
-    console.log('PRODUCT' + this.products);
-
+  this.products.imageUrl = data;
   }
        );
 
-
-
-  // task
-  // .snapshotChanges()
-  // .pipe(finalize(() => this.imgUrl = this.ref.getDownloadURL()))
-  // .subscribe(data => console.log(data));
 
   }
 
@@ -75,17 +60,9 @@ this.getCategories();
 
   submit() {
     // this.imgUrl = this.downloadURL;
+    console.log(this.products);
 this.service.addProducts(this.products).subscribe(data => {
-  // if (this.name) {
-  //   this.toastr.success('Please fill required fields');
-
-  // } else {
-    // this.service.addProducts(this.products).subscribe(data => {
-      console.log(this.downloadURL);
   this.toastr.success('You have successfully added new product');
-
-
-
 
 });
 // }

@@ -6,12 +6,34 @@
             <form class="col-md-10">
                 <div class="form-group ">
                     <label for="product ">Picture:*</label>
-                    <!-- <input type="text "  placeholder="" name="name" class="form-control " id="category" required> -->
+                    <div>
+                        <img [src]="imgUrl">
+                    </div>
+                    <div>
+                        <img src={{imgUrl}}>
+                    </div>
+                </div>
+                <!-- <input type="text" [value]="downloadURL" name="imageUrl" id="imageUrl" [(ngModel)]="products.imageUrl">
+                <br>
+                <progress max="100" [value]="(uploadProgress | async)"></progress> -->
+                <br> <input type="text" [value]="imgUrl" name="imageUrl" id="imageUrl" [(ngModel)]="products.imageUrl">
+                <!-- <br> <progress max="100" [value]="(uploadProgress | async)"></progress> -->
+                <br>
+                <div class="progress">
+                    <!-- <br> <progress max="100" [value]="(uploadProgress | async)"></progress> -->
+                    <progress class="progress-bar" [value]="(uploadProgress | async)" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></progress>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-success">Upload a File</button>
+                    <label class="image-upload-container btn btn-primary">
+                      <span>Select Image</span>
+                  <input type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
+                </label>
+                    <!-- <button type="submit" class="btn btn-success">Upload a File</button> -->
                     <button type="submit" class="btn btn-danger ">Remove Picture</button>
                 </div>
+
+                <!-- Name -->
+
                 <div class="form-group ">
                     <label for="category ">Name:*</label>
                     <input type="text " placeholder="Name" [(ngModel)]="products.name" name="name" class="form-control " id="product" required>
