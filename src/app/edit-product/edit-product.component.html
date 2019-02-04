@@ -7,7 +7,7 @@
                 <div class="form-group ">
                     <label for="product ">Picture:*</label>
                     <div>
-                        <img src="products.imageUrl">
+                        <img [src]="products.imageUrl">
                     </div>
                 </div>
                 <br>
@@ -20,10 +20,9 @@
                   <input  type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
                 </label>
                     <!-- <button type="submit" class="btn btn-success">Upload a File</button> -->
-                    <button type="submit" class="btn btn-danger " (click)="removeImg()">Remove Picture</button>
+                    <button class="btn btn-danger " (click)="removeImg()">Remove Picture</button>
                 </div>
                 <!-- Name -->
-
                 <div class="form-group ">
                     <label for="category ">Name:*</label>
                     <input type="text " placeholder="Name" [(ngModel)]="products.name" name="name" class="form-control " id="product" required>

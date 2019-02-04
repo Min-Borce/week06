@@ -30,6 +30,7 @@ export class AddProductComponent implements OnInit {
 products: ProductsInterface = {} as ProductsInterface;
 // category: CategoriesInterface = {} as CategoriesInterface;
 category: object = [];
+  urlImage: any;
   constructor(
     private service: ProductsService,
     private serviceCat: CategoriesService,
@@ -40,12 +41,12 @@ category: object = [];
   ngOnInit() {
 this.getCategories();
   }
-  removeImg(id) {
-      this.service.deleteProducts(id).subscribe(data => {
-      this.imageUrl = data;
-      });
-      // this.toastr.success('Hello world!', 'Toastr fun!');
-  }
+
+  removeImg() {
+    this.products.imageUrl = '';
+    console.log('2 ' + this.products.imageUrl);
+        }
+
   upload(event) {
     // debugger;
     const randomId = Math.random().toString(36).substring(2);

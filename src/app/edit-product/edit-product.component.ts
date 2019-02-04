@@ -5,6 +5,10 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from '../services/categories.service';
 import { Observable } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { finalize } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
@@ -25,6 +29,7 @@ export class EditProductComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private serviceCat: CategoriesService,
     private afStorage: AngularFireStorage,
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -41,9 +46,7 @@ export class EditProductComponent implements OnInit {
 
   updateCategory() {
     this.service.updateProducts(this.products.id, this.products).subscribe(data => {
-      console.log('11 ' + data);
-      // this.router.navigate(['/categories']);
-      // this.toastr.success('You have edited category successfully');
+      this.toastr.success('You have edited product successfully');
 
     });
   }
@@ -54,7 +57,9 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-
+  removeImg() {
+    this.products.imageUrl = '';
+        }
   upload(event) {
     // debugger;
     const randomId = Math.random().toString(36).substring(2);
@@ -63,18 +68,22 @@ export class EditProductComponent implements OnInit {
     this.uploadProgress = task.percentageChanges();
 
 
-  this.ref.getDownloadURL().subscribe( data => {
-  this.downloadURL = data;
-  console.log('1 ' + data);
-  this.imgUrl = this.downloadURL;
+  // this.ref.getDownloadURL().subscribe( data => {
+  // this.downloadURL = data;
+  // // console.log('1 ' + data);
+  // this.imgUrl = this.downloadURL;
 
-    console.log(this.products);
-
-
-  }
-       );
+  //   console.log(this.products);
 
 
+  // }
+  //      );
+
+  task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
+    this.products.imageUrl = data;
+        });
+    })
+  ).subscribe(data => console.log(data));
 
   // task
   // .snapshotChanges()
