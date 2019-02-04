@@ -15,20 +15,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-product.component.scss']
 })
 
-
 export class AddProductComponent implements OnInit {
-  // name: string;
-  // categoryId: number;
-  // manifactuer: string;
   id: number;
   ref;
   task;
   uploadProgress;
-  // downloadURL;
   imageUrl;
   imgUrl: Observable<string>;
 products: ProductsInterface = {} as ProductsInterface;
-// category: CategoriesInterface = {} as CategoriesInterface;
 category: object = [];
   urlImage: any;
   constructor(
@@ -48,49 +42,21 @@ this.getCategories();
         }
 
   upload(event) {
-    // debugger;
     const randomId = Math.random().toString(36).substring(2);
     this.ref = this.afStorage.ref(randomId);
     const task = this.ref.put(event.target.files[0]);
     this.uploadProgress = task.percentageChanges();
-
-
-  // this.ref.getDownloadURL().subscribe( data => {
-  // this.products.imageUrl = data;
-  // }
-  // );
-
-
-  task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
+    task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
     this.products.imageUrl = data;
         });
     })
   ).subscribe(data => console.log(data));
-
-
-
-
-
-
-
-
   }
-
-
-
   submit() {
-    // this.imgUrl = this.downloadURL;
     console.log(this.products);
 this.service.addProducts(this.products).subscribe(data => {
   this.toastr.success('You have successfully added new product');
-
 });
-// }
-
-
-
-// });
-
   }
 
 getCategories() {

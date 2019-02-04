@@ -10,6 +10,7 @@ export class ProductsService {
 
 public urlPost  = 'http://127.0.0.1:3000/products';
 public urlDelete =  'http://127.0.0.1:3000/products/';
+public urlSearch = 'http://localhost:3000/products?filter[where][name][eq]=';
 // list: ProductsInterface[];
 editId: number;
   constructor(private http: HttpClient) { }
@@ -27,4 +28,16 @@ editId: number;
 deleteProducts(id) {
   return this.http.delete(this.urlDelete + id);
 }
+getAllProducts(): Observable<any> {
+  return this.http.get<any>(this.urlPost);
+}
+
+editProduct(id): Observable<any> {
+  return this.http.get<any>(this.urlPost + '/' + this.editId);
+  }
+
+  searchProducts(name) {
+    return this.http.get(this.urlSearch + name);
+  }
+
 }

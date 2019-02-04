@@ -16,7 +16,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditProductComponent implements OnInit {
   products: ProductsInterface = {} as ProductsInterface;
-  // id: number;
   prodId: number;
   category: object = [];
   uploadProgress;
@@ -66,35 +65,10 @@ export class EditProductComponent implements OnInit {
     this.ref = this.afStorage.ref(randomId);
     const task = this.ref.put(event.target.files[0]);
     this.uploadProgress = task.percentageChanges();
-
-
-  // this.ref.getDownloadURL().subscribe( data => {
-  // this.downloadURL = data;
-  // // console.log('1 ' + data);
-  // this.imgUrl = this.downloadURL;
-
-  //   console.log(this.products);
-
-
-  // }
-  //      );
-
-  task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
+    task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
     this.products.imageUrl = data;
         });
     })
   ).subscribe(data => console.log(data));
-
-  // task
-  // .snapshotChanges()
-  // .pipe(finalize(() => this.imgUrl = this.ref.getDownloadURL()))
-  // .subscribe(data => console.log(data));
-
   }
-
-
-
-
-
-
 }

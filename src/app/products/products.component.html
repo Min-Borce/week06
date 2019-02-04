@@ -1,15 +1,66 @@
-<br><br>
-
-
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
-            <!-- <a><img src="assets/img/under_construction.gif" alt="gif"></a> -->
-            <!-- <button type="button" class="btn btn-primary" (click)="addProduct()">Add New Product</button> -->
-            <button type="button" routerLink="/add-product" class="btn btn-primary">Add New Product</button>
-
+<br>
+<br>
+<!-- <app-menu></app-menu> -->
+<div class="container ">
+    <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
+        <div class="row">
+            <div>
+                <button routerLink="/add-product" type="button " class="btn btn-success">Add Product</button>
+            </div>
+            <!-- SEARCH -->
+            <div class="row justify-content-center" id="search">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <form class="">
+                        <div class=" row no-gutters align-items-center">
+                            <div class="col">
+                                <input class="form-control form-control-lg form-control-borderless" [(ngModel)]="productSearch" name="search" type="search" placeholder="Search">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-lg btn-success" type="submit" (click)="searchProduct(products)"><i class="fa fa-search"></i> </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
+    </div>
+    <br><br>
+    <div class="row ">
+        <div class="panel col-md-8 offset-md-4 col-sm-12 offset-sm-1 col-xs-12 ">
+            <div class="panel-body ">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <!-- <th scope="col ">#</th> -->
+                            <th scope="col ">Picture</th>
+                            <th scope="col ">Name</th>
+                            <th scope="col ">Categories</th>
+                            <th scope="col ">Price</th>
+                            <th scope="col ">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products ">
+                            <!-- <td>{{item.id}}</td> -->
+                            <td><img src={{product.imageUrl}}></td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.categoryId}}</td>
+                            <td>{{product.name}}</td>
+                            <td>
+                                <button [routerLink]="['/edit-product', product.id]" type="button " id="button" class=" btn btn-info btn - sm "><i class="fa fa-pencil"></i></button>
+                                <button type="button " class=" btn btn-danger btn - sm " (click)="openModal(template)"><i class="fa fa-trash"></i> </button>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <p>Are you sure you want to delete {{product.name}}</p>
+                                        <button type="button" class="btn btn-default" (click)="deleteProduct(product.id)">Yes</button>
+                                        <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
