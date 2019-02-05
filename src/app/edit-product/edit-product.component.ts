@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { finalize } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,7 +29,9 @@ export class EditProductComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private serviceCat: CategoriesService,
     private afStorage: AngularFireStorage,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public router: Router,
+
     ) { }
 
   ngOnInit() {
@@ -43,9 +46,10 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  updateCategory() {
+  updateProduct() {
     this.service.updateProducts(this.products.id, this.products).subscribe(data => {
       this.toastr.success('You have edited product successfully');
+      this.router.navigate(['/products']);
 
     });
   }

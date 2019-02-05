@@ -1,0 +1,16 @@
+<div class="xxc ">
+</div>
+<br>
+<div class="container">
+    <div class="row col-lg-12">
+        <div class="card col-lg-3 col-md-3 col-sm-6" style="width: 18rem;" *ngFor="let product of products">
+            <img class="card-img-top" src="{{product.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.price}}$</p>
+                <a href="#" class="btn btn-primary">Add To Cart</a>
+            </div>
+        </div>
+
+    </div>
+</div>

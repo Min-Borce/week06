@@ -7,6 +7,8 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -29,7 +31,8 @@ category: object = [];
     private service: ProductsService,
     private serviceCat: CategoriesService,
     private afStorage: AngularFireStorage,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public router: Router,
     ) { }
 
   ngOnInit() {
@@ -56,6 +59,7 @@ this.getCategories();
     console.log(this.products);
 this.service.addProducts(this.products).subscribe(data => {
   this.toastr.success('You have successfully added new product');
+  this.router.navigate(['/products']);
 });
   }
 

@@ -19,6 +19,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { UserLayoutComponent } from './user-layout/user-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +31,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     EditCategoryComponent,
     AddProductComponent,
     EditProductComponent,
+    UserLayoutComponent,
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

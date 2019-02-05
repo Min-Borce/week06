@@ -4,6 +4,7 @@ export interface ProductsInterface {
 id: number;
 name: string;
 imageUrl: string;
+price: 0;
 manufacturer: string;
 isAvailable: boolean;
 shortDescription: string;

@@ -2,28 +2,33 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ProductsInterface } from '../model/products';
 import { ProductsService } from '../services/products.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { CategoriesService } from '../services/categories.service';
+// import { CategoriesService } from '../services/categories.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.scss']
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  products: ProductsInterface = {} as ProductsInterface;
+  // products: ProductsInterface = {} as ProductsInterface;
+  products: object = [];
   productSearch: string;
   product: any;
   id: number;
   modalRef: BsModalRef;
   category: any;
+  // category: object = [];
   constructor(
     private service: ProductsService,
+    // private serviceCat: CategoriesService,
     private modalService: BsModalService
   ) { }
 
   ngOnInit() {
     this.getProducts();
   }
+
+
   getProducts() {
     this.service.getAllProducts()
     .subscribe(data => {
@@ -35,10 +40,10 @@ export class ProductsComponent implements OnInit {
     if (!this.productSearch) {
       this.getProducts();
       console.log('search is clicked 1');
-    } else {
+    } else  {
      this.service.searchProducts(this.productSearch).subscribe(data => {
       console.log('search  is clicked 2');
-      return this.product = data;
+      return this.products = data;
 
    }); } }
 

@@ -1,4 +1,4 @@
-<br>
+<app-menu></app-menu>
 <br>
 <div class="container  ">
     <div class=" col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
@@ -38,6 +38,11 @@
                 <div class="form-group ">
                     <label for="manifactuer ">Manifactuer:*</label>
                     <input type="text" placeholder="Manifactuer" name="manifactuer" [(ngModel)]="products.manufacturer" class="form-control " id="manifactuer" required>
+                </div>
+                <!-- Price -->
+                <div class="form-group ">
+                    <label for="price">Price:*</label>
+                    <input type="number" placeholder="Price" name="price" [(ngModel)]="products.price" class="form-control " id="price" required>
                 </div>
                 <!-- Availability -->
                 <div class="form-group ">

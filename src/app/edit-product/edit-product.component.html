@@ -1,9 +1,10 @@
-<br>
+<app-menu></app-menu>
 <br>
 <div class="container  ">
     <div class=" col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
         <div class="row">
             <form class="col-md-10">
+                <!-- Picture -->
                 <div class="form-group ">
                     <label for="product ">Picture:*</label>
                     <div>
@@ -27,16 +28,24 @@
                     <label for="category ">Name:*</label>
                     <input type="text " placeholder="Name" [(ngModel)]="products.name" name="name" class="form-control " id="product" required>
                 </div>
+                <!-- Categories -->
                 <div class="form-group ">
                     <label for="categories">Categories:*</label>
                     <select [(ngModel)]="products.categoryId" name="categoryId" id="categoryId" class="custom-select custom-select-lg mb-3">
                     <option *ngFor="let item of category" [ngValue]="item.id"  id="parent" >{{item.name}}</option>
               </select>
                 </div>
+                <!-- Manifactuer -->
                 <div class="form-group ">
                     <label for="manifactuer ">Manifactuer:*</label>
                     <input type="text" placeholder="Manifactuer" name="manifactuer" [(ngModel)]="products.manufacturer" class="form-control " id="manifactuer" required>
                 </div>
+                <!-- Price -->
+                <div class="form-group ">
+                    <label for="price">Price:*</label>
+                    <input type="number" placeholder="Price" name="price" [(ngModel)]="products.price" class="form-control " id="price" required>
+                </div>
+                <!-- Availability -->
                 <div class="form-group ">
                     <label for="availability ">Availability:*</label>
                     <div class="custom-control custom-checkbox">
@@ -44,19 +53,22 @@
                         <label class="custom-control-label" for="available">Available</label>
                     </div>
                 </div>
+                <!-- Short Description -->
                 <div class="form-group">
                     <label for="shortDescription">Short Description:</label>
                     <textarea class="form-control" rows="4" name="shortDescription" [(ngModel)]="products.shortDescription" id="shortDescription"></textarea>
                 </div>
+                <!-- Full Description -->
                 <div class="form-group">
                     <label for="fullDescription">Full Description:</label>
                     <textarea class="form-control" rows="6" name="fullDescription" [(ngModel)]="products.fullDescription" id="fullDescription"></textarea>
                 </div>
             </form>
         </div>
+        <!-- Buttons -->
         <div>
             <button [routerLink]="['/products']" routerLinkActive="router-link-active" type="submit" class="btn btn-success">Back</button>
-            <button type="submit" class="btn btn-success " (click)="updateCategory()">Update</button>
+            <button type="submit" class="btn btn-success " (click)="updateProduct()">Update</button>
         </div>
     </div>
 </div>
