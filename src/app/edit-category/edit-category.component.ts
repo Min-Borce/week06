@@ -9,34 +9,32 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./edit-category.component.scss']
 })
 export class EditCategoryComponent implements OnInit {
-
-cat: any = {
-'name': '',
-'parentCategoryName': '',
-'description': ''
-};
-// editId: number;
-name: string;
-parentCategoryName: string;
-description: string;
-parent: string;
-category: any;
+  cat: any = {
+    name: '',
+    parentCategoryName: '',
+    description: ''
+  };
+  name: string;
+  parentCategoryName: string;
+  description: string;
+  parent: string;
+  category: any;
   constructor(
     private service: CategoriesService,
     public router: Router,
     private toastr: ToastrService
-    ) { }
+  ) { }
 
-
+  // Edit Category
   editCategory() {
     this.service.editCategories().subscribe(data => {
-    this.cat = data;
-    this.name = this.cat.name;
-    this.parent = this.cat.parentCategoryName;
-    this.description = this.cat.description;
+      this.cat = data;
+      this.name = this.cat.name;
+      this.parent = this.cat.parentCategoryName;
+      this.description = this.cat.description;
     });
   }
-
+  // Update Category
   updateCategory() {
     this.cat.name = this.name;
     this.cat.parentCategoryName = this.parent;
@@ -44,12 +42,9 @@ category: any;
     this.service.updateCategories(this.cat.id, this.cat).subscribe(data => {
       this.router.navigate(['/categories']);
       this.toastr.success('You have edited category successfully');
-
     });
-    // this.router.navigate(['/categories']);
-
   }
-
+  // Back Button
   backToCategories() {
     this.router.navigate(['/categories']);
   }

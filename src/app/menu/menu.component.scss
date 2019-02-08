@@ -21,6 +21,12 @@ img {
 .xxc {
     background-color: #23282e;
     height: 60px;
+    img {
+        margin-top: 1%;
+        margin-right: 1%;
+        width: 2%;
+        float: right;
+    }
 }
 
 .login {
@@ -36,17 +42,20 @@ img {
     background-color: #2e353d;
     position: fixed;
     top: 0px;
-    width: 300px;
+    // width: 300px;
+    width: 20%;
     height: 100%;
     color: #e1ffff;
 }
 
 .nav-side-menu .brand {
     background-color: #23282e;
+    // background-color: yellow;
+    width: 110%;
     line-height: 50px;
     display: block;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .nav-side-menu .toggle-btn {
@@ -158,6 +167,9 @@ img {
         position: relative;
         width: 100%;
         margin-bottom: 10px;
+    }
+    .brand {
+        width: 100%;
     }
     .nav-side-menu .toggle-btn {
         display: block;

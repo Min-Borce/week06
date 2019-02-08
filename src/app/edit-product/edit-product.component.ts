@@ -19,11 +19,8 @@ export class EditProductComponent implements OnInit {
   products: ProductsInterface = {} as ProductsInterface;
   prodId: number;
   category: object = [];
-  uploadProgress;
+  uploadProgress: Observable<number>;
   imgUrl: Observable<string>;
-  ref;
-  task;
-  downloadURL;
   constructor(
     private service: ProductsService,
     private activeRoute: ActivatedRoute,
@@ -32,20 +29,20 @@ export class EditProductComponent implements OnInit {
     private toastr: ToastrService,
     public router: Router,
 
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.getProducts();
     this.getCategories();
   }
-
+  //  Get Products
   getProducts() {
     this.prodId = this.activeRoute.snapshot.params.id;
     this.service.getProducts(this.prodId).subscribe(data => {
       this.products = data;
     });
   }
-
+  // Update Product
   updateProduct() {
     this.service.updateProducts(this.products.id, this.products).subscribe(data => {
       this.toastr.success('You have edited product successfully');
@@ -53,26 +50,28 @@ export class EditProductComponent implements OnInit {
 
     });
   }
-
+  // Get categories
   getCategories() {
     this.serviceCat.getCategories().subscribe(data => {
       this.category = data;
     });
   }
 
+  // Upload Image
+  upload(event) {
+    const randomId = Math.random().toString(36).substring(2);
+    const refFile = this.afStorage.ref(randomId);
+    const task = refFile.put(event.target.files[0]);
+    this.uploadProgress = task.percentageChanges();
+    task.snapshotChanges().pipe(finalize(() => {
+      refFile.getDownloadURL().subscribe(data => {
+        this.products.imageUrl = data;
+      });
+    })
+    ).subscribe(data => console.log(data));
+  }
+  // Remove Image
   removeImg() {
     this.products.imageUrl = '';
-        }
-  upload(event) {
-    // debugger;
-    const randomId = Math.random().toString(36).substring(2);
-    this.ref = this.afStorage.ref(randomId);
-    const task = this.ref.put(event.target.files[0]);
-    this.uploadProgress = task.percentageChanges();
-    task.snapshotChanges().pipe(finalize(() => {this.ref.getDownloadURL().subscribe(data => {
-    this.products.imageUrl = data;
-        });
-    })
-  ).subscribe(data => console.log(data));
   }
 }

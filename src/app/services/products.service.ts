@@ -8,32 +8,31 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
-public urlPost  = 'http://127.0.0.1:3000/products';
-public urlDelete =  'http://127.0.0.1:3000/products/';
-public urlSearch = 'http://localhost:3000/products?filter[where][name][eq]=';
-// list: ProductsInterface[];
-editId: number;
+  public urlPost = 'http://127.0.0.1:3000/products';
+  public urlDelete = 'http://127.0.0.1:3000/products/';
+  public urlSearch = 'http://localhost:3000/products?filter[where][name][eq]=';
+  editId: number;
   constructor(private http: HttpClient) { }
 
 
   addProducts(product) {
     return this.http.post<ProductsInterface>(this.urlPost, product);
-}
+  }
   getProducts(id): Observable<any> {
-  return this.http.get<any>(this.urlPost + '/' + id);
-}
+    return this.http.get<any>(this.urlPost + '/' + id);
+  }
   updateProducts(id, products) {
-  return this.http.put<any>(this.urlPost + '/' + id, products);
-}
-deleteProducts(id) {
-  return this.http.delete(this.urlDelete + id);
-}
-getAllProducts(): Observable<any> {
-  return this.http.get<any>(this.urlPost);
-}
+    return this.http.put<any>(this.urlPost + '/' + id, products);
+  }
+  deleteProducts(id) {
+    return this.http.delete(this.urlDelete + id);
+  }
+  getAllProducts(): Observable<any> {
+    return this.http.get<any>(this.urlPost);
+  }
 
-editProduct(id): Observable<any> {
-  return this.http.get<any>(this.urlPost + '/' + this.editId);
+  editProduct(id): Observable<any> {
+    return this.http.get<any>(this.urlPost + '/' + this.editId);
   }
 
   searchProducts(name) {

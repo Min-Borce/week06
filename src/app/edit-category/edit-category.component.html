@@ -4,16 +4,19 @@
     <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
         <div class="row">
             <form>
+                <!-- Category -->
                 <div class="form-group ">
                     <label for="category ">Category:</label>
                     <input type="text " [(ngModel)]="name" placeholder="Category" name="name" class="form-control " id="category ">
                 </div>
+                <!-- Parent Category -->
                 <div class="form-group ">
                     <label for="parentCategory">Parent Category:</label>
                     <select [(ngModel)]="parent" name="parent" class="custom-select custom-select-lg mb-3">
                         <option *ngFor="let item of category" [ngValue]="item.name"  id="parent" >{{item.name}}</option>
                   </select>
                 </div>
+                <!-- Description -->
                 <div class="form-group">
                     <label for="description">Description:</label>
                     <textarea class="form-control" rows="5" name="description" [(ngModel)]="description" id="description"></textarea>
@@ -21,6 +24,7 @@
 
             </form>
         </div>
+        <!-- Buttons -->
         <div>
             <button type="submit" class="btn btn-success " (click)="backToCategories() ">Back</button>
             <button type="submit" class="btn btn-success " (click)="updateCategory() ">Update</button>

@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-// import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import { CategoriesService } from '../services/categories.service';
 import { ToastrService } from 'ngx-toastr';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -15,65 +14,58 @@ export class CategoriesComponent implements OnInit {
   description: string;
   id: number;
   parent: number;
-  cat = {
-    'name': '',
-    'parentCategoryName': '',
-    'description': ''
-  };
   categoryArray: Object;
   categoryDelete: Object;
   categorySearch: string;
   modalRef: BsModalRef;
+  category: any;
+  cat = {
+    name: '',
+    parentCategoryName: '',
+    description: ''
+  };
 
   constructor(
     private service: CategoriesService,
     private toastr: ToastrService,
     private modalService: BsModalService
-         ) {
-      this.getCategory();
-
+  ) {
+    this.getCategory();
   }
 
-  // category: object[];
-  category: any;
+  // Get Category
   getCategory() {
-    this.service.getCategories()
-    .subscribe(data => {
-    this.category = data;
+    this.service.getCategories().subscribe(data => {
+      this.category = data;
     });
   }
-
-
-
-editCategory(id) {
-this.service.editId = id;
-}
+  // Edit Category
+  editCategory(id) {
+    this.service.editId = id;
+  }
+  // Delete Category
   deleteCategory(id) {
-
-
     this.service.deleteCategories(id).subscribe(data => {
-    this.categoryDelete = data;
-    this.toastr.success('You have successfully deleted category');
+      this.categoryDelete = data;
+      this.toastr.success('You have successfully deleted category');
       this.getCategory();
       this.modalRef.hide();
-
     });
-    // this.toastr.success('Hello world!', 'Toastr fun!');
-
-   }
-
-   searchCategory() {
+  }
+  // Search
+  searchCategory() {
     if (!this.categorySearch) {
       this.getCategory();
     } else {
-     this.service.searchCategories(this.categorySearch).subscribe(data => {
-      return this.category = data;
-   }); } }
+      this.service.searchCategories(this.categorySearch).subscribe(data => {
+        return (this.category = data);
+      });
+    }
+  }
 
-
-
-   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
+  // Delete Modal
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   }
 
   confirm(): void {
