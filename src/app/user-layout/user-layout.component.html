@@ -20,12 +20,11 @@
     <div class=" row text-center ">
         <button type="button " class="btn btn-primary " *ngFor="let item of category ">{{item.name}}</button>
     </div>
-
     <!-- Table -->
     <div class="row ">
         <div class="col-lg-3 col-md-3 col-sm-6 " *ngFor="let product of products ">
             <div class="card ">
-                <img class="card-img-top mx-auto " src="{{product.imageUrl}} " alt="Card image cap ">
+                <img [routerLink]="['/product-view', product.id]" class="card-img-top mx-auto " src="{{product.imageUrl}} " alt="Card image cap ">
                 <div class="card-body ">
                     <h5 class="card-title ">{{product.name}}</h5>
                     <p class="card-text ">{{product.price}}$</p>
