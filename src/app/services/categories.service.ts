@@ -13,6 +13,7 @@ export class CategoriesService {
   public urlGetPost = 'http://127.0.0.1:3000/categories';
   public urlDelete = 'http://127.0.0.1:3000/categories/';
   public urlSearch = 'http://localhost:3000/categories?filter[where][name]=';
+  public urlSort = 'http://localhost:3000/products?filter[where][categoryId]=';
   list: CategoriesInterface[];
   editId: number;
   id: number;
@@ -43,4 +44,7 @@ export class CategoriesService {
     return this.http.put<any>(this.urlGetPost + '/' + id, category);
   }
 
+  sortCategoryById(id) {
+    return this.http.get(this.urlSort + id);
+  }
 }

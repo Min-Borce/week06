@@ -2,14 +2,37 @@
     background-color: #23282e;
 }
 
+.bg-dark {
+    background-color: #23282e !important;
+}
+
+ul li a {
+    color: white;
+    cursor: pointer;
+}
+
+div a {
+    color: white;
+}
+
 .nav-size2 {
     padding-right: 0;
 }
 
+.nav-size {
+    margin-right: 0;
+}
+
+.category-background {
+    margin: 0;
+    background-color: #23282e;
+}
+
 .fa-shopping-cart {
     color: white;
-    font-size: 40px;
+    font-size: 30px;
     margin-right: 1%;
+    cursor: pointer;
 }
 
 img {
@@ -18,11 +41,13 @@ img {
 }
 
 #logo {
-    width: 40%
+    margin-top: 0;
+    width: 100%;
+    vertical-align: middle;
 }
 
 button {
-    margin: 2%;
+    margin: 1%;
 }
 
 @media (max-width: 850px) {

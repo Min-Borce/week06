@@ -11,6 +11,7 @@ import { CategoriesService } from '../services/categories.service';
 export class UserLayoutComponent implements OnInit {
   products: object = [];
   productSearch: string;
+  categorySort: any;
   category: any;
   constructor(
     private service: ProductsService,
@@ -39,9 +40,27 @@ export class UserLayoutComponent implements OnInit {
       if (!this.productSearch) {
         this.getProducts();
       } else {
+        console.log('2');
         this.service.searchProducts(this.productSearch).subscribe(data => {
           return (this.products = data);
         });
       }
     }
+
+  // Sort By Category
+    sortByCategory(id) {
+        this.serviceCat.sortCategoryById(id).subscribe(data => {
+         this.products = data;
+        });
+      }
+      // Add To Cart
+      shopCart = [];
+      addToCart(product) {
+         localStorage.setItem('key', JSON.stringify(product));
+
+         this.shopCart = JSON.parse(localStorage.getItem('key'));
+         console.log(this.shopCart);
+
+      }
+
 }

@@ -12,4 +12,27 @@ input {
 
 button {
     border-radius: 0 !important;
+    background-color: #ff5400;
+    border-color: #ff5400;
+    &:hover {
+        background-color: #ff5400;
+        border-color: #ff5400;
+    }
+}
+
+.zoom {
+    // padding: 30px;
+    // background-color: green;
+    transition: transform .2s;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.2);
+    /* IE 9 */
+    -webkit-transform: scale(1.2);
+    /* Safari 3-8 */
+    transform: scale(1.2);
 }
