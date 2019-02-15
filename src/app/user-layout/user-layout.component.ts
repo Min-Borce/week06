@@ -13,6 +13,8 @@ export class UserLayoutComponent implements OnInit {
   productSearch: string;
   categorySort: any;
   category: any;
+  cartNumber: number;
+  shopCart = [];
   constructor(
     private service: ProductsService,
     private serviceCat: CategoriesService,
@@ -21,6 +23,7 @@ export class UserLayoutComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
     this.getCategory();
+    this.cartNumber = localStorage.length;
   }
   // Get Products
   getProducts() {
@@ -29,38 +32,35 @@ export class UserLayoutComponent implements OnInit {
         this.products = data;
       });
   }
-    // Get Category
-    getCategory() {
-      this.serviceCat.getCategories().subscribe(data => {
-        this.category = data;
+  // Get Category
+  getCategory() {
+    this.serviceCat.getCategories().subscribe(data => {
+      this.category = data;
+    });
+  }
+  // Search
+  searchProduct() {
+    if (!this.productSearch) {
+      this.getProducts();
+    } else {
+      console.log('2');
+      this.service.searchProducts(this.productSearch).subscribe(data => {
+        return (this.products = data);
       });
     }
-    // Search
-    searchProduct() {
-      if (!this.productSearch) {
-        this.getProducts();
-      } else {
-        console.log('2');
-        this.service.searchProducts(this.productSearch).subscribe(data => {
-          return (this.products = data);
-        });
-      }
-    }
+  }
 
   // Sort By Category
-    sortByCategory(id) {
-        this.serviceCat.sortCategoryById(id).subscribe(data => {
-         this.products = data;
-        });
-      }
-      // Add To Cart
-      shopCart = [];
-      addToCart(product) {
-         localStorage.setItem('key', JSON.stringify(product));
+  sortByCategory(id) {
+    this.serviceCat.sortCategoryById(id).subscribe(data => {
+      this.products = data;
+    });
+  }
 
-         this.shopCart = JSON.parse(localStorage.getItem('key'));
-         console.log(this.shopCart);
-
-      }
-
+  // Add To Cart
+  addToCart(product) {
+    localStorage.setItem(product.id, JSON.stringify(product));
+    this.shopCart = JSON.parse(localStorage.getItem(product.id));
+    this.cartNumber = localStorage.length;
+  }
 }

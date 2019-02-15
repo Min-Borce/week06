@@ -1,13 +1,34 @@
-// * {
-//     border-radius: 0 !important;
-// }
+.nav-menu {
+    background-color: #23282e;
+}
+
+.bg-dark {
+    background-color: #23282e !important;
+}
+
+ul li a {
+    color: white;
+    cursor: pointer;
+}
+
+div a {
+    color: white;
+}
+
+.nav-size2 {
+    padding-right: 0;
+}
+
+.nav-size {
+    margin-right: 0;
+}
+
 img {
-    width: 70%;
-    // height: 20%;
+    width: 50%;
 }
 
 input {
-    max-width: 7%;
+    max-width: 15%;
 }
 
 button {
@@ -21,8 +42,6 @@ button {
 }
 
 .zoom {
-    // padding: 30px;
-    // background-color: green;
     transition: transform .2s;
     width: 200px;
     height: 200px;
@@ -35,4 +54,47 @@ button {
     -webkit-transform: scale(1.2);
     /* Safari 3-8 */
     transform: scale(1.2);
+}
+
+.fa-shopping-cart {
+    color: white;
+    font-size: 30px;
+    margin-right: 1%;
+    cursor: pointer;
+    strong {
+        background-color: green;
+        border-radius: 30%;
+        padding-left: 10%;
+        padding-right: 10%;
+        margin-left: 10%;
+        color: white;
+    }
+}
+
+@media (max-width: 725px) {
+    img {
+        width: 70%;
+    }
+}
+
+@media (max-width: 575px) {
+    img {
+        width: 10%;
+    }
+    .fa-shopping-cart {
+        position: relative;
+        left: 90%;
+        bottom: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    img {
+        width: 10%;
+    }
+    .fa-shopping-cart {
+        position: relative;
+        left: 85%;
+        bottom: 35px;
+    }
 }

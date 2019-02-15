@@ -22,6 +22,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { ProductViewComponent } from './product-view/product-view.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { ProductViewComponent } from './product-view/product-view.component';
     EditProductComponent,
     UserLayoutComponent,
     ProductViewComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

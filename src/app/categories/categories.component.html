@@ -7,7 +7,7 @@
                 <button routerLink="/add-category" type="button " class="btn btn-success">Add Category</button>
             </div>
             <!-- SEARCH -->
-            <div class="row justify-content-center" id="search">
+            <!-- <div class="row justify-content-center" id="search">
                 <div class="col-12 col-md-10 col-lg-8">
                     <form class="">
                         <div class=" row no-gutters align-items-center">
@@ -20,6 +20,14 @@
                         </div>
                     </form>
                 </div>
+            </div> -->
+            <!-- SEARCH 2 -->
+            <div class="col-lg-4 col-md-7 col-sm-8 col-xs-8" id="searchBox">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="categorySearch" name="search" aria-label="Search">
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchCategory()"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </div>
     </div>

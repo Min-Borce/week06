@@ -12,6 +12,12 @@ img {
     // clear: both;
 }
 
+.form-inline {
+    input {
+        max-width: 50%;
+    }
+}
+
 #button {
     margin-right: 2%;
 }

@@ -11,7 +11,7 @@
 }
 
 img {
-    width: 40%;
+    width: 15%;
 }
 
 #catpro {
@@ -201,6 +201,9 @@ img {
 @media (max-width: 820px) {
     .xxc {
         display: none;
+    }
+    img {
+        width: 10%;
     }
 }
 

@@ -33,6 +33,30 @@ div a {
     font-size: 30px;
     margin-right: 1%;
     cursor: pointer;
+    // strong {
+    //     width: 300%;
+    //     border-radius: 30%;
+    //     padding-left: 15%;
+    //     padding-right: 15%;
+    //     margin-left: 9%;
+    //     background-color: red;
+    //     color: white;
+    // }
+}
+
+strong {
+    // height: 5px;
+    background-color: green;
+    border-radius: 30%;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: 10%;
+    // background-color: red;
+    color: white;
+}
+
+.shopingCart {
+    margin-right: 1%;
 }
 
 img {
@@ -42,7 +66,7 @@ img {
 
 #logo {
     margin-top: 0;
-    width: 100%;
+    width: 50%;
     vertical-align: middle;
 }
 

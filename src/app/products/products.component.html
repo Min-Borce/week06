@@ -8,20 +8,14 @@
             <div>
                 <button routerLink="/add-product" type="button " class="btn btn-success">Add Product</button>
             </div>
+
             <!-- SEARCH -->
-            <div class="row justify-content-center" id="search">
-                <div class="col-12 col-md-10 col-lg-8">
-                    <form class="">
-                        <div class=" row no-gutters align-items-center">
-                            <div class="col">
-                                <input class="form-control form-control-lg form-control-borderless" [(ngModel)]="productSearch" name="search" type="search" placeholder="Search">
-                            </div>
-                            <div class="col-auto">
-                                <button class="btn btn-lg btn-success" type="submit" (click)="searchProduct()"><i class="fa fa-search"></i> </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="col-lg-4 col-md-7 col-sm-8 col-xs-8" id="searchBox">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="productSearch" name="search" aria-label="Search">
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProduct()"><i class="fa fa-search"></i></button>
+                </form>
             </div>
         </div>
     </div>
