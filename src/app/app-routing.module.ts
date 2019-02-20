@@ -1,3 +1,4 @@
+import { MyCartComponent } from './my-cart/my-cart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriesComponent } from './categories/categories.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'add-product', component: AddProductComponent },
   { path: 'edit-product/:id', component: EditProductComponent },
   { path: 'user-layout', component: UserLayoutComponent },
-  { path: 'product-view/:id', component: ProductViewComponent }
+  { path: 'product-view/:id', component: ProductViewComponent },
+  { path: 'my-cart', component: MyCartComponent }
 ];
 
 @NgModule({

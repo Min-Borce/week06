@@ -23,6 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { FooterComponent } from './footer/footer.component';
+import { MyCartComponent } from './my-cart/my-cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { FooterComponent } from './footer/footer.component';
     UserLayoutComponent,
     ProductViewComponent,
     FooterComponent,
+    MyCartComponent,
   ],
   imports: [
     BrowserModule,

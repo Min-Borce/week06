@@ -20,6 +20,7 @@ export class AddProductComponent implements OnInit {
   imgUrl: Observable<string>;
   products: ProductsInterface = {} as ProductsInterface;
   category: object = [];
+
   // urlImage: any;
   constructor(
     private service: ProductsService,

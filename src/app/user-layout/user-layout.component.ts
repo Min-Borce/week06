@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../services/products.service';
 import { ProductsInterface } from '../model/products';
 import { CategoriesService } from '../services/categories.service';
+import { CategoriesInterface } from '../model/categories';
+
+
 
 @Component({
   selector: 'app-user-layout',
@@ -9,10 +12,10 @@ import { CategoriesService } from '../services/categories.service';
   styleUrls: ['./user-layout.component.scss']
 })
 export class UserLayoutComponent implements OnInit {
-  products: object = [];
+  products: ProductsInterface  [];
   productSearch: string;
   categorySort: any;
-  category: any;
+  category: CategoriesInterface[];
   cartNumber: number;
   shopCart = [];
   constructor(
@@ -44,7 +47,7 @@ export class UserLayoutComponent implements OnInit {
       this.getProducts();
     } else {
       console.log('2');
-      this.service.searchProducts(this.productSearch).subscribe(data => {
+      this.service.searchProducts(this.productSearch).subscribe((data: ProductsInterface[]) => {
         return (this.products = data);
       });
     }
@@ -52,13 +55,14 @@ export class UserLayoutComponent implements OnInit {
 
   // Sort By Category
   sortByCategory(id) {
-    this.serviceCat.sortCategoryById(id).subscribe(data => {
+    this.serviceCat.sortCategoryById(id).subscribe((data: ProductsInterface[]) => {
       this.products = data;
     });
   }
 
   // Add To Cart
   addToCart(product) {
+    product.quantity = 1;
     localStorage.setItem(product.id, JSON.stringify(product));
     this.shopCart = JSON.parse(localStorage.getItem(product.id));
     this.cartNumber = localStorage.length;

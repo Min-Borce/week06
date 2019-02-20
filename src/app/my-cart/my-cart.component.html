@@ -1,0 +1,64 @@
+<div class="row nav-size">
+    <div class="col-lg-12 col-md-12 col-sm-12 nav-size2">
+        <nav class="nav-menu navbar">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                <img src="assets/img/book_logo2.png" id="logo" alt="logo">
+            </div>
+            <div class="col-lg-4 col-md-7 col-sm-8 col-xs-8" id="searchBox">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="productSearch" name="search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProduct()"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="shopingCart">
+                <i class="fa fa-shopping-cart"><strong>{{counter}}</strong></i>
+            </div>
+        </nav>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row ">
+        <div class="panel  col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+            <div class="panel-body ">
+                <table class="table  table-bordered table-striped table-hover table-sm table-responsive ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <!-- <th scope="col ">#</th> -->
+                            <th scope="col ">Picture</th>
+                            <th scope="col ">Product(s)</th>
+                            <th scope="col ">Price</th>
+                            <th scope="col ">Quantity</th>
+                            <th scope="col ">Total</th>
+                            <th scope="col ">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of localProducts ">
+                            <!-- <td>{{product.id}}</td> -->
+                            <td id="productImage"> <img src="{{product.imageUrl}} " alt="product"></td>
+                            <!-- <td>{{product.imageUrl}}</td> -->
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td id="quantityInput">
+                                <input type="number" min="1" [(ngModel)]="product.quantity" (input)="changeQuantity(product)" name="quantity" class="form-control" id="quantity" required>
+                            </td>
+
+                            <td>{{product.total}}</td>
+                            <td>{{product.totalSum}}</td>
+                        </tr>
+                        <tr class="tr-dark">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>TOTAL SUM</td>
+                            <td>{{totalSum}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

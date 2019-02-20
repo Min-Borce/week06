@@ -6,19 +6,19 @@
             <form class="col-md-10">
                 <!-- Picture -->
                 <div class="form-group ">
-                    <label for="product ">Picture:*</label>
+                    <label for="product">Picture:*</label>
                     <div>
                         <img class="image-upload-container" [src]="products.imageUrl" alt="">
                     </div>
                 </div>
                 <br>
                 <!-- Progress Bar -->
-                <div class="progress">
+                <div class="progress" *ngIf="uploadProgress">
                     <progress class="progress-bar" [value]="(uploadProgress | async)" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></progress>
                 </div>
                 <!-- Upload/Remove Buttons -->
                 <div>
-                    <label class="btn btn-primary">
+                    <label class="btn btn-primary" id="selectImage">
                       <span>Select Image</span>
                   <input  type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
                 </label>
