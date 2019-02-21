@@ -36,7 +36,7 @@
                     <tbody>
                         <tr *ngFor="let product of localProducts ">
                             <!-- <td>{{product.id}}</td> -->
-                            <td id="productImage"> <img src="{{product.imageUrl}} " alt="product"></td>
+                            <td id="productImage" class="sizing"> <img src="{{product.imageUrl}} " alt="product"></td>
                             <!-- <td>{{product.imageUrl}}</td> -->
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
@@ -45,15 +45,25 @@
                             </td>
 
                             <td>{{product.total}}</td>
-                            <td>{{product.totalSum}}</td>
+                            <td class="sizing">
+                                <button type="button " class=" btn btn-danger btn - sm " (click)="openModal(template)"><i class="fa fa-remove"></i> </button>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <p>Are you sure you want to delete {{product.name}}</p>
+                                        <button type="button" class="btn btn-default" (click)="removeFromCart(product.id)">Yes</button>
+                                        <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+
                         </tr>
                         <tr class="tr-dark">
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>TOTAL SUM</td>
-                            <td>{{totalSum}}</td>
+                            <td>Total: {{totalSum}}</td>
+                            <td></td>
                         </tr>
 
                     </tbody>

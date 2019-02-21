@@ -49,11 +49,16 @@ div a {
     }
 }
 
-#productImage {
+.sizing {
     width: 20px;
     img {
         height: 50px;
         display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-danger {
+        border-radius: 50%;
         margin-left: auto;
         margin-right: auto;
     }
