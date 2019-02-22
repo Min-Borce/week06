@@ -13,6 +13,7 @@ export class ProductViewComponent implements OnInit {
   prodId: number;
   cartNumber: number;
   shopCart = [];
+
   constructor(
     private service: ProductsService,
     private activeRoute: ActivatedRoute,
@@ -30,10 +31,11 @@ export class ProductViewComponent implements OnInit {
       this.products = data;
     });
   }
-  // Add To Cart
-  addToCart(product) {
-    localStorage.setItem(product.id, JSON.stringify(product));
-    this.shopCart = JSON.parse(localStorage.getItem(product.id));
+   // Add To Cart
+   addToCart(products) {
+    localStorage.setItem(products.id, JSON.stringify(products));
+    this.shopCart = JSON.parse(localStorage.getItem(products.id));
     this.cartNumber = localStorage.length;
+    
   }
 }

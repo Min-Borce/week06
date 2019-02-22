@@ -46,7 +46,6 @@ export class UserLayoutComponent implements OnInit {
     if (!this.productSearch) {
       this.getProducts();
     } else {
-      console.log('2');
       this.service.searchProducts(this.productSearch).subscribe((data: ProductsInterface[]) => {
         return (this.products = data);
       });

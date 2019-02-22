@@ -1,13 +1,13 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { ProductsInterface } from '../model/products';
-import { ProductsService } from '../services/products.service';
-import { ToastrService } from 'ngx-toastr';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Router } from '@angular/router';
+import { Component, OnInit, TemplateRef } from "@angular/core";
+import { ProductsInterface } from "../model/products";
+import { ProductsService } from "../services/products.service";
+import { ToastrService } from "ngx-toastr";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { Router } from "@angular/router";
 @Component({
-  selector: 'app-my-cart',
-  templateUrl: './my-cart.component.html',
-  styleUrls: ['./my-cart.component.scss']
+  selector: "app-my-cart",
+  templateUrl: "./my-cart.component.html",
+  styleUrls: ["./my-cart.component.scss"]
 })
 export class MyCartComponent implements OnInit {
   products: ProductsInterface[];
@@ -25,7 +25,7 @@ export class MyCartComponent implements OnInit {
     private toastr: ToastrService,
     private modalService: BsModalService,
     public router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.counter = localStorage.length;
@@ -44,23 +44,23 @@ export class MyCartComponent implements OnInit {
   }
 
   // Search
-  searchProduct() {
-    if (!this.productSearch) {
-      this.getProducts();
-    } else {
-      console.log('2');
-      this.service.searchProducts(this.productSearch).subscribe((data: ProductsInterface[]) => {
-        return (this.products = data);
-      });
-    }
-  }
+  // searchProduct() {
+  //   if (!this.productSearch) {
+  //     this.getProducts();
+  //   } else {
+  //     this.service.searchProducts(this.productSearch).subscribe((data: ProductsInterface[]) => {
+  //       return (this.products = data);
+  //     });
+  //   }
+  // }
 
   // Total Price
   totalPrice() {
     // this.getProducts();
     this.totalSum = 0;
     for (let i = 0; i < this.localProducts.length; i++) {
-      this.localProducts[i].total = this.localProducts[i].quantity * this.localProducts[i].price;
+      this.localProducts[i].total =
+        this.localProducts[i].quantity * this.localProducts[i].price;
       this.total = this.localProducts[i].total;
       this.totalSum += this.total;
     }
@@ -71,7 +71,6 @@ export class MyCartComponent implements OnInit {
       if (product.id == this.localProducts[i].id) {
         product.quantity = this.localProducts[i].quantity;
         localStorage.setItem(product.id, JSON.stringify(product));
-
       }
     }
     this.totalPrice();
@@ -79,9 +78,8 @@ export class MyCartComponent implements OnInit {
 
   // Remove Product From Cart
   removeFromCart(id) {
-
     localStorage.removeItem(id);
-    this.toastr.success('You have successfully removed product from cart');
+    this.toastr.success("You have successfully removed product from cart");
     this.modalRef.hide();
     this.getProducts();
     this.totalPrice();
@@ -90,11 +88,20 @@ export class MyCartComponent implements OnInit {
 
   // Delete Modal
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    this.modalRef = this.modalService.show(template, { class: "modal-sm" });
   }
 
   decline(): void {
     this.modalRef.hide();
   }
-
+  //  Checkout
+  checkout() {
+    localStorage.clear();
+    this.toastr.success(
+      "You have bought all the products from the cart. Shoping Cart is empty"
+    );
+    this.getProducts();
+    this.totalPrice();
+    this.counter = localStorage.length;
+  }
 }

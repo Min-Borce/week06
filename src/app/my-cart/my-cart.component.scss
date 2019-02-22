@@ -63,7 +63,10 @@ div a {
         margin-right: auto;
     }
 }
-
+.checkout{
+    float: right;
+        //  position: relative;
+        }
 #logo {
     margin-top: 0;
     width: 50%;
@@ -106,10 +109,10 @@ button {
         background-color: #23282e;
         margin: 0;
     }
-    .fa-shopping-cart {
+    .shopingCart {
         position: relative;
-        left: 90%;
-        bottom: 105px;
+        left: 80%;
+        bottom: 50px;
     }
     .form-inline {
         input {
