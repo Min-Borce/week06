@@ -1,0 +1,41 @@
+#searchBox {
+    float: right;
+}
+
+img {
+    width: 3%
+}
+
+.form-inline {
+    input {
+        max-width: 60%;
+    }
+}
+
+#button {
+    margin-right: 2%;
+}
+
+@media (max-width: 991px) {
+    #searchBox {}
+}
+
+@media (max-width: 767px) {
+    #searchBox {
+        margin-top: 3%;
+        margin-right: 80px;
+    }
+}
+
+@media (max-width: 575px) {
+    #searchBox {
+        float: none;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 452px) {
+    #searchBox {
+        width: 200px;
+    }
+}

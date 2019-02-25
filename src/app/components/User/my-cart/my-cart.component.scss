@@ -1,0 +1,125 @@
+  $color_1: white;
+  $background_color_1: #23282e;
+  $background_color_2: green;
+  .nav-menu {
+      background-color: $background_color_1;
+  }
+  
+  .nav-size {
+      margin-right: 0;
+      .nav-size2 {
+          padding-right: 0;
+          #logo {
+              margin-top: 0;
+              width: 50%;
+              vertical-align: middle;
+          }
+      }
+  }
+  
+  .shopingCart {
+      margin-right: 1%;
+      .fa-shopping-cart {
+          color: white;
+          font-size: 30px;
+          margin-right: 1%;
+          cursor: pointer;
+          strong {
+              font-size: 20px;
+              background-color: $background_color_2;
+              border-radius: 30%;
+              padding-left: 10%;
+              padding-right: 10%;
+              margin-left: 10%;
+              color: $color_1;
+          }
+      }
+  }
+  
+  .sizing {
+      width: 20px;
+      img {
+          height: 50px;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+      }
+      .btn-danger {
+          border-radius: 50%;
+          margin-left: auto;
+          margin-right: auto;
+      }
+  }
+  
+  .checkout {
+      float: right;
+  }
+  
+  button {
+      margin: 1%;
+  }
+  
+  #quantityInput {
+      width: 10%;
+      input {
+          width: 80%;
+          margin: auto;
+      }
+  }
+  
+  @media (max-width: 950px) {
+      #logo {
+          width: 80% !important;
+      }
+  }
+  
+  @media (max-width: 767px) {
+      #logo {
+          width: 30% !important;
+      }
+  }
+  
+  @media (max-width: 667px) {
+      #logo {
+          width: 40% !important;
+      }
+  }
+  
+  @media (max-width: 575px) {
+      .nav-size {
+          max-width: 575px;
+          background-color: $background_color_1;
+          margin: 0;
+          .nav-menu {
+              height: 50px;
+              .shopingCart {
+                  position: relative;
+                  left: 80%;
+                  bottom: 30px;
+              }
+              #logo {
+                  width: 5% !important;
+              }
+          }
+      }
+  }
+  
+  @media (max-width: 490px) {
+      .nav-size {
+          .nav-menu {
+              #logo {
+                  width: 8% !important;
+              }
+          }
+      }
+  }
+  
+  @media (max-width: 390px) {
+      .nav-size {
+          .nav-menu {
+              #logo {
+                  width: 10% !important;
+              }
+          }
+      }
+  }

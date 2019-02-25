@@ -1,0 +1,29 @@
+img {
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#button {
+    margin-right: 2%;
+}
+
+.form-inline {
+    input {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 991px) {
+    #searchBox {
+        margin-top: -7px;
+    }
+}
+
+@media (max-width: 767px) {
+    #searchBox {
+        margin-top: 3%;
+        margin-left: -15px;
+    }
+}

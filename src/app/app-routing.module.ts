@@ -1,15 +1,16 @@
-import { MyCartComponent } from './my-cart/my-cart.component';
+import { MyCartComponent } from './components/User/my-cart/my-cart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CategoriesComponent } from './categories/categories.component';
-import { MenuComponent } from './menu/menu.component';
-import { ProductsComponent } from './products/products.component';
-import { AddCategoryComponent } from './add-category/add-category.component';
-import { EditCategoryComponent } from './edit-category/edit-category.component';
-import { AddProductComponent } from './add-product/add-product.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
-import { UserLayoutComponent } from './user-layout/user-layout.component';
-import { ProductViewComponent } from './product-view/product-view.component';
+import { CategoriesComponent } from './components/Admin/categories/categories.component';
+import { MenuComponent } from './components/Admin/menu/menu.component';
+import { ProductsComponent } from './components/Admin/products/products.component';
+import { AddCategoryComponent } from './components/Admin/add-category/add-category.component';
+import { EditCategoryComponent } from './components/Admin/edit-category/edit-category.component';
+import { AddProductComponent } from './components/Admin/add-product/add-product.component';
+import { EditProductComponent } from './components/Admin/edit-product/edit-product.component';
+import { UserLayoutComponent } from './components/User/user-layout/user-layout.component';
+import { ProductViewComponent } from './components/User/product-view/product-view.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/categories', pathMatch: 'full' },

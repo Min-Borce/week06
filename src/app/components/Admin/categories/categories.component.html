@@ -1,0 +1,63 @@
+<!-- <div class="container "> -->
+<app-menu class="col-md-3  col-lg-3  "></app-menu>
+<br>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-8 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 ">
+
+            <!-- <div> -->
+            <button routerLink="/add-category" type="button " class="btn btn-success">Add Category</button>
+            <!-- </div> -->
+            <!-- SEARCH -->
+            <div class=" " id="searchBox">
+                <form class="form-inline  ">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="categorySearch" name="search" aria-label="Search">
+
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchCategory()"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="row ">
+        <div class="panel col-md-8 offset-md-3 col-sm-12 offset-sm-1 col-xs-12 ">
+            <div class="panel-body ">
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <!-- <th scope="col ">#</th> -->
+                            <th scope="col ">Category</th>
+                            <th scope="col ">Parent Category</th>
+                            <th scope="col ">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of category ">
+                            <!-- <td>{{item.id}}</td> -->
+                            <td>{{item.name}}</td>
+                            <td>{{item.parentCategoryName}}</td>
+                            <td>
+                                <button routerLink="/edit-category" type="button " id="button" (click)="editCategory(item.id)" class=" btn btn-info btn - sm "><i class="fa fa-pencil"></i></button>
+                                <button type="button " class=" btn btn-danger btn - sm " (click)="openModal(template)"><i class="fa fa-trash"></i> </button>
+                                <ng-template #template>
+                                    <div class="modal-body text-center">
+                                        <p>Are you sure you want to delete {{item.name}}</p>
+                                        <button type="button" class="btn btn-default" (click)="deleteCategory(item.id)">Yes</button>
+                                        <button type="button" class="btn btn-primary" (click)="decline()">No</button>
+                                    </div>
+                                </ng-template>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- USER LAYOUT -->
+    <div class="col-md-8 offset-md-4 col-sm-8 offset-sm-2 col-xs-8 ">
+        <div>
+            <button routerLink="/user-layout" type="button " class="btn btn-danger">Go To User Layout</button>
+        </div>
+    </div>
+    <br><br>
+</div>
