@@ -12,19 +12,22 @@
 <div class="container">
     <div class="row">
         <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-3">
-            <div class="col-lg-6  col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-4  col-md-6 col-sm-6 col-xs-6">
                 <img class="card-img-top mx-auto zoom" src="{{products.imageUrl}} " alt="">
             </div>
-            <div class="col-lg-6  col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-8  col-md-6 col-sm-6 col-xs-6">
                 <h5 class="card-title">{{products.name}}</h5>
                 <p class="card-text">{{products.shortDescription}} </p>
                 <p class="card-text">Manufacturer: <strong>{{products.manufacturer}}</strong> </p>
                 <p class="card-title">Price: <strong>{{products.price}}$</strong></p>
-                <input type="number" min="1" [(ngModel)]="products.quantity" name="quantity"  id="quantity"> 
-                <button class="btn-sm btn-primary"  (click)="addToCart(products)">Add To Cart</button>
+                <input type="number" min="1" [(ngModel)]="products.quantity" name="quantity" id="quantity">
+                <!-- <button class="btn-sm btn-primary" (click)="addToCart(products)">Add To Cart</button> -->
+                <!-- <a class="btn-sm btn-primary" (click)="addToCart(products)">Add To Cart</a> -->
+                <a *ngIf="products.isAvailable" class="btn-sm btn-dark  " (click)="addToCart(products)">Add To Cart</a>
+                <button *ngIf="!products.isAvailable" class="btn-sm btn-danger  " disabled>Out of Stock</button>
             </div>
         </div>
-        <div class="col-lg-9  col-md-9 col-sm-9 col-xs-9">
+        <div class="col-lg-9  col-md-9 col-sm-9 col-xs-9" id="productDesc">
             <p class="card-text">{{products.fullDescription}} </p>
         </div>
     </div>

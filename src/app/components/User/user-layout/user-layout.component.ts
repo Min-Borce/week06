@@ -3,7 +3,7 @@ import { ProductsService } from '../../../services/products.service';
 import { ProductsInterface } from '../../../model/products';
 import { CategoriesService } from '../../../services/categories.service';
 import { CategoriesInterface } from '../../../model/categories';
-
+import { ToastrService } from "ngx-toastr";
 
 
 @Component ({
@@ -18,9 +18,11 @@ export class UserLayoutComponent implements OnInit {
   category: CategoriesInterface[];
   cartNumber: number;
   shopCart = [];
+  // isAvailable: boolean;
   constructor(
     private service: ProductsService,
     private serviceCat: CategoriesService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -64,6 +66,8 @@ export class UserLayoutComponent implements OnInit {
     product.quantity = 1;
     localStorage.setItem(product.id, JSON.stringify(product));
     this.shopCart = JSON.parse(localStorage.getItem(product.id));
+    this.toastr.success("You added product in your cart");
     this.cartNumber = localStorage.length;
+
   }
 }

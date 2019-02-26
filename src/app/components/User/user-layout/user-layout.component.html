@@ -40,7 +40,8 @@
                 <div class="card-body ">
                     <h5 class="card-title ">{{product.name}}</h5>
                     <p class="card-text ">{{product.price}}$</p>
-                    <a class="btn btn-primary " (click)="addToCart(product)">Add To Cart</a>
+                    <a *ngIf="product.isAvailable" class="btn btn-dark btn-lg btn-block" (click)="addToCart(product)">Add To Cart</a>
+                    <button *ngIf="!product.isAvailable" class="btn btn-danger btn-lg btn-block" disabled>Out of Stock</button>
                 </div>
             </div>
         </div>

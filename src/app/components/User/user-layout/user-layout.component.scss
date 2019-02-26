@@ -6,6 +6,20 @@
     background-color: #23282e !important;
 }
 
+.card-body {
+    a {
+        // background-color: #f0a74c;
+        background-color: #c45500;
+        &:hover {
+            color: white;
+        }
+        &:active {
+            background-color: #c45500;
+            color: white;
+        }
+    }
+}
+
 ul li a {
     color: white;
     cursor: pointer;

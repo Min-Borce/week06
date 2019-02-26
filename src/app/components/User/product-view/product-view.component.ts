@@ -32,6 +32,10 @@ export class ProductViewComponent implements OnInit {
   }
   // Add To Cart
   addToCart(products) {
+    if(products.quantity === undefined){
+      products.quantity = 1;
+    }
+
     localStorage.setItem(products.id, JSON.stringify(products));
     this.shopCart = JSON.parse(localStorage.getItem(products.id));
     this.cartNumber = localStorage.length;

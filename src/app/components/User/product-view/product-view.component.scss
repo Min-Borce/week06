@@ -1,3 +1,7 @@
+#productDesc {
+    margin-top: 2%;
+}
+
 .nav-menu {
     background-color: #23282e;
 }
@@ -31,12 +35,20 @@ input {
     max-width: 15%;
 }
 
-button {
+button,
+a {
+    cursor: pointer;
     border-radius: 0 !important;
-    background-color: #ff5400;
+    background-color: #ff5400 !important;
+    border: 2px solid #ff5400 !important;
     border-color: #ff5400;
     &:hover {
         background-color: #ff5400;
+        border-color: #ff5400;
+        color: white !important;
+    }
+    &:active {
+        background-color: #ff5400 !important;
         border-color: #ff5400;
     }
 }
