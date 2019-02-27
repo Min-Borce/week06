@@ -8,7 +8,7 @@
                 <div class="form-group ">
                     <label for="product">Picture:*</label>
                     <div>
-                        <img class="image-upload-container" [src]="products.imageUrl" alt="">
+                        <img class="image-upload-container" src="{{products.imageUrl}}" alt="" required>
                     </div>
                 </div>
                 <br>
@@ -19,9 +19,9 @@
                 <!-- Upload/Remove Buttons -->
                 <div>
                     <label class="btn btn-primary" id="selectImage">
-                      <span>Select Image</span>
-                  <input  type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
-                </label>
+            <span>Select Image</span>
+            <input type="file" (change)="upload($event)" accept="image/*" name="" class="form-control" id="image_Url">
+          </label>
                     <button class="btn btn-danger " (click)="removeImg()">Remove Picture</button>
                 </div>
                 <!-- Name -->
@@ -33,8 +33,8 @@
                 <div class="form-group ">
                     <label for="categories">Categories:*</label>
                     <select [(ngModel)]="products.categoryId" name="categoryId" id="categoryId" class="custom-select custom-select-lg mb-3">
-                      <option *ngFor="let item of category" [ngValue]="item.id"  id="parent" required>{{item.name}}</option>
-                </select>
+            <option *ngFor="let item of category" [ngValue]="item.id" id="parent" required>{{item.name}}</option>
+          </select>
                 </div>
                 <!-- Manifactuer -->
                 <div class="form-group ">
@@ -70,7 +70,6 @@
         <div>
             <button type="submit" class="btn btn-success " (click)="submit()">Submit</button>
             <button [routerLink]="['/products']" routerLinkActive="router-link-active" type="submit" class="btn btn-danger">Back</button>
-
         </div>
     </div>
 </div>

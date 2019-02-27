@@ -1,32 +1,36 @@
+$color_1: white;
+$background_color_1: #23282e;
+$background_color_2: #c45500;
+$background_color_3: green;
 .nav-menu {
-    background-color: #23282e;
+    background-color: $background_color_1;
 }
 
 .bg-dark {
-    background-color: #23282e !important;
+    background-color: $background_color_1 !important;
 }
 
 .card-body {
     a {
         // background-color: #f0a74c;
-        background-color: #c45500;
+        background-color: $background_color_2;
         &:hover {
-            color: white;
+            color: $color_1;
         }
         &:active {
-            background-color: #c45500;
-            color: white;
+            background-color: $background_color_2;
+            color: $color_1;
         }
     }
 }
 
 ul li a {
-    color: white;
+    color: $color_1;
     cursor: pointer;
 }
 
 div a {
-    color: white;
+    color: $color_1;
 }
 
 .nav-size2 {
@@ -39,29 +43,27 @@ div a {
 
 .category-background {
     margin: 0;
-    background-color: #23282e;
-}
-
-.fa-shopping-cart {
-    color: white;
-    font-size: 30px;
-    margin-right: 1%;
-    cursor: pointer;
-    strong {
-        // height: 5px;
-        font-size: 20px;
-        background-color: green;
-        border-radius: 30%;
-        padding-left: 10%;
-        padding-right: 10%;
-        margin-left: 10%;
-        // background-color: red;
-        color: white;
-    }
+    background-color: $background_color_1;
 }
 
 .shopingCart {
     margin-right: 1%;
+    .fa-shopping-cart {
+        color: $color_1;
+        font-size: 30px;
+        margin-right: 1%;
+        cursor: pointer;
+        strong {
+            // height: 5px;
+            font-size: 20px;
+            background-color: $background_color_3;
+            border-radius: 30%;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-left: 10%;
+            color: $color_1;
+        }
+    }
 }
 
 img {
@@ -95,7 +97,7 @@ button {
     }
     .nav-size {
         max-width: 575px;
-        background-color: #23282e;
+        // background-color: $background_color_1;
         margin: 0;
     }
     .fa-shopping-cart {

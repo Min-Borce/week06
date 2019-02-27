@@ -15,15 +15,38 @@ img {
     }
 }
 
-@media (max-width: 991px) {
-    #searchBox {
-        margin-top: -7px;
-    }
+#searchBox {
+    float: right;
+    margin-right: -70px;
 }
 
+// @media (max-width: 991px) {
+//     #searchBox {
+//         margin-top: -7px;
+//     }
+// }
+// @media (max-width: 767px) {
+//     #searchBox {
+//         margin-top: 3%;
+//         margin-left: -15px;
+//     }
+// }
 @media (max-width: 767px) {
     #searchBox {
         margin-top: 3%;
-        margin-left: -15px;
+        margin-right: 80px;
+    }
+}
+
+@media (max-width: 575px) {
+    #searchBox {
+        float: none;
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 452px) {
+    #searchBox {
+        width: 200px;
     }
 }

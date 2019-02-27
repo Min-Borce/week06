@@ -1,7 +1,7 @@
 <!-- <div class="container "> -->
-<app-menu class="col-md-3  col-lg-3  "></app-menu>
+<app-menu class="col-md-3  col-lg-3"></app-menu>
 <br>
-<div class="container ">
+<div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 ">
 
@@ -9,8 +9,8 @@
             <button routerLink="/add-category" type="button " class="btn btn-success">Add Category</button>
             <!-- </div> -->
             <!-- SEARCH -->
-            <div class=" " id="searchBox">
-                <form class="form-inline  ">
+            <div class="" id="searchBox">
+                <form class="form-inline">
                     <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="categorySearch" name="search" aria-label="Search">
 
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchCategory()"><i class="fa fa-search"></i></button>
@@ -19,8 +19,9 @@
         </div>
     </div>
     <br><br>
+    <!-- Table -->
     <div class="row ">
-        <div class="panel col-md-8 offset-md-3 col-sm-12 offset-sm-1 col-xs-12 ">
+        <div class="panel col-md-8 offset-md-3 col-sm-12 offset-sm-1 col-xs-12">
             <div class="panel-body ">
                 <table class="table table-bordered ">
                     <thead>
