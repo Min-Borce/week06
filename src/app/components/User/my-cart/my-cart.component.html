@@ -4,12 +4,6 @@
             <div class="col-lg-1 col-md-1 col-sm-2 col-xs-1">
                 <img src="assets/img/book_logo2.png" id="logo" alt="logo">
             </div>
-            <!-- <div class="col-lg-4 col-md-7 col-sm-8 col-xs-8" id="searchBox">
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 " type="search" placeholder="Search" [(ngModel)]="productSearch" name="search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProduct()"><i class="fa fa-search"></i></button>
-            </form>
-            </div> -->
             <div class="shopingCart">
                 <i class="fa fa-shopping-cart"><strong>{{counter}}</strong></i>
             </div>
@@ -24,7 +18,6 @@
                 <table class="table  table-bordered table-striped table-hover table-sm ">
                     <thead class="thead-dark">
                         <tr>
-                            <!-- <th scope="col ">#</th> -->
                             <th scope="col ">Picture</th>
                             <th scope="col ">Product(s)</th>
                             <th scope="col ">Price</th>
@@ -35,15 +28,13 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let product of localProducts ">
-                            <!-- <td>{{product.id}}</td> -->
                             <td id="productImage" class="sizing"> <img src="{{product.imageUrl}} " alt="product"></td>
-                            <!-- <td>{{product.imageUrl}}</td> -->
                             <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
+                            <td>{{product.price}}$</td>
                             <td id="quantityInput">
                                 <input type="number" min="1" [(ngModel)]="product.quantity" (input)="changeQuantity(product)" name="quantity" class="form-control" id="quantity" required>
                             </td>
-                            <td>{{product.total}}</td>
+                            <td>{{product.total}}$</td>
                             <td class="sizing">
                                 <button type="button " class=" btn btn-danger btn - sm " (click)="openModal(template)"><i class="fa fa-remove"></i> </button>
                                 <ng-template #template>
@@ -59,11 +50,11 @@
                 </table>
             </div>
             <div class="checkout">
-                <h4>Total: {{totalSum}} </h4>
+                <h4>Total: {{totalSum}}$ </h4>
                 <button class="btn-sm btn-primary " (click)="checkout()">Checkout</button>
             </div>
         </div>
     </div>
 </div>
-<br><br><br>
+
 <app-footer></app-footer>

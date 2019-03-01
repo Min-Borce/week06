@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
-import { ProductsInterface } from "../../../model/products";
 import { ProductsService } from "../../../services/products.service";
 import { ToastrService } from "ngx-toastr";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
@@ -11,7 +10,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./my-cart.component.scss"]
 })
 export class MyCartComponent implements OnInit {
-  products: ProductsInterface[];
   productSearch: string;
   cartNumber: number;
   localProducts = [];
@@ -20,7 +18,6 @@ export class MyCartComponent implements OnInit {
   value: number;
   totalSum = 0;
   modalRef: BsModalRef;
-  // quantity: number =  1;
   constructor(
     private service: ProductsService,
     private toastr: ToastrService,
@@ -44,20 +41,8 @@ export class MyCartComponent implements OnInit {
     this.localProducts = productss;
   }
 
-  // Search
-  // searchProduct() {
-  //   if (!this.productSearch) {
-  //     this.getProducts();
-  //   } else {
-  //     this.service.searchProducts(this.productSearch).subscribe((data: ProductsInterface[]) => {
-  //       return (this.products = data);
-  //     });
-  //   }
-  // }
-
   // Total Price
   totalPrice() {
-    // this.getProducts();
     this.totalSum = 0;
     for (let i = 0; i < this.localProducts.length; i++) {
       this.localProducts[i].total =

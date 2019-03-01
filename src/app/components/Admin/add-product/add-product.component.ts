@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsInterface } from '../../../model/products';
 import { ProductsService } from '../../../services/products.service';
 import { CategoriesService } from '../../../services/categories.service';
-// import {CategoriesInterface} from '../model/categories';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -21,7 +20,6 @@ export class AddProductComponent implements OnInit {
   products: ProductsInterface = {} as ProductsInterface;
   category: object = [];
 
-  // urlImage: any;
   constructor(
     private service: ProductsService,
     private serviceCat: CategoriesService,

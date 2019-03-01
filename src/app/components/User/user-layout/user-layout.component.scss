@@ -10,16 +10,21 @@ $background_color_3: green;
     background-color: $background_color_1 !important;
 }
 
-.card-body {
-    a {
-        // background-color: #f0a74c;
-        background-color: $background_color_2;
-        &:hover {
-            color: $color_1;
-        }
-        &:active {
+.card {
+    img {
+        height: 200px;
+    }
+    .card-body {
+        a {
+            // background-color: #f0a74c;
             background-color: $background_color_2;
-            color: $color_1;
+            &:hover {
+                color: $color_1;
+            }
+            &:active {
+                background-color: $background_color_2;
+                color: $color_1;
+            }
         }
     }
 }
